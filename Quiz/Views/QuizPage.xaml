@@ -10,21 +10,32 @@
         <convert:QuestionToBool x:Key="boolCon" />
 
     </ContentPage.Resources>
-    <VerticalStackLayout Spacing="34" Padding="20" x:Name="hello">
+    <VerticalStackLayout Spacing="34" Padding="20" x:Name="hello" >
         
-        <Label
-            x:Name="labelA"
-            Text="Quiz"
+       
+        <HorizontalStackLayout HorizontalOptions="Center" >
+            <Label
+            Text="Score  "
+                FontSize="Large"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-      
+              <Label
+            Text="{Binding Score}"
+                  FontSize="Large"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        </HorizontalStackLayout>
+    
         <Label Text="{Binding Question}"></Label>
-
-        <CollectionView x:Name="collectionQuestions" ItemsSource="{Binding Answers}"  >
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="{ x:Type x:String }">
-
-                    <RadioButton Content="{Binding .} "></RadioButton>
+        
+        <CollectionView x:Name="collectionQuestions" ItemsSource="{Binding Answers}"  RadioButtonGroup.GroupName="choices"
+              >
+            
+            <CollectionView.ItemTemplate  >
+                <DataTemplate x:DataType="{ x:Type x:String }"  >
+                    
+                    <RadioButton x:Name="{Binding .}" GroupName="choices" Content="{Binding .}" Value="{Binding .}" CheckedChanged="RadioButton_CheckedChanged"  ></RadioButton>
                   
 
                 </DataTemplate>

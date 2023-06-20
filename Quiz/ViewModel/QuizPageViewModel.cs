@@ -19,6 +19,8 @@ namespace Quiz.ViewModel
 
 
         string correctAnswer;
+
+        [ObservableProperty]
         int score = 0;
      
         public QuizPageViewModel()
@@ -56,13 +58,23 @@ namespace Quiz.ViewModel
         [ObservableProperty]
         string question;
 
+      
+        public string SelectedValue;
+
         [ObservableProperty]
         int no=0;
 
         [RelayCommand]
         void SubmitAnswer()
         {
-            score += 1;
+            
+            System.Diagnostics.Debug.WriteLine(SelectedValue, "Selected");
+            System.Diagnostics.Debug.WriteLine(correctAnswer, "corrent");
+            if (SelectedValue == correctAnswer)
+            {
+
+                Score += 1;
+            }
             No += 1;
             if (No <= 9)
             {

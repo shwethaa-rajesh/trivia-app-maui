@@ -13,5 +13,17 @@ public partial class QuizPage : ContentPage
 
     }
 
-	
+    void RadioButton_CheckedChanged(System.Object sender, Microsoft.Maui.Controls.CheckedChangedEventArgs e)
+    {
+        if (sender== null)
+        {
+            return;
+        }
+        RadioButton rb = sender as RadioButton;
+
+        instance.SelectedValue = rb.Content.ToString();
+        
+       
+    }
+
 }
