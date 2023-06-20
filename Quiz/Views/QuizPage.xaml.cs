@@ -20,9 +20,9 @@ public partial class QuizPage : ContentPage
             return;
         }
         RadioButton rb = sender as RadioButton;
-
-        instance.SelectedValue = rb.Content.ToString();
-        
+        string content = rb.Content.ToString();
+        instance.SelectedValue = content;
+        instance.SelectedButton = rb;
        
     }
 

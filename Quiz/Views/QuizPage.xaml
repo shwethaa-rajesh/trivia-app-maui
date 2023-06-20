@@ -10,7 +10,13 @@
         <convert:QuestionToBool x:Key="boolCon" />
 
     </ContentPage.Resources>
-    <VerticalStackLayout Spacing="34" Padding="20" x:Name="hello" >
+
+    <StackLayout>
+        <ActivityIndicator IsRunning="{Binding IsLoading}" HorizontalOptions="Center" VerticalOptions="Center"  >
+
+
+        </ActivityIndicator>
+    <VerticalStackLayout Spacing="34" Padding="20" x:Name="hello" IsVisible="{Binding ShowQuestions }" >
         
        
         <HorizontalStackLayout HorizontalOptions="Center" >
@@ -46,4 +52,5 @@
 
         <Button Text="Submit" Command="{Binding SubmitAnswerCommand}"></Button>
     </VerticalStackLayout>
+        </StackLayout>
 </ContentPage>
