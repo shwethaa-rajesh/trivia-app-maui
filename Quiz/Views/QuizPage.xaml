@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Quiz.Views.QuizPage"
+             xmlns:viewmodel="clr-namespace:Quiz.ViewModel"
+             xmlns:convert="clr-namespace:Quiz.ViewModel"
+             x:DataType="viewmodel:QuizPageViewModel"
+             Title="QuizPage">
+    <ContentPage.Resources>
+        <convert:QuestionToBool x:Key="boolCon" />
+
+    </ContentPage.Resources>
+    <VerticalStackLayout Spacing="34" Padding="20" x:Name="hello">
+        
+        <Label
+            x:Name="labelA"
+            Text="Quiz"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+      
+        <Label Text="{Binding Question}"></Label>
+
+        <CollectionView x:Name="collectionQuestions" ItemsSource="{Binding Answers}"  >
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="{ x:Type x:String }">
+
+                    <RadioButton Content="{Binding .} "></RadioButton>
+                  
+
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+        <Button Text="Submit" Command="{Binding SubmitAnswerCommand}"></Button>
+    </VerticalStackLayout>
+</ContentPage>
